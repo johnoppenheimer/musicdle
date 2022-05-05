@@ -1,4 +1,4 @@
-module.exports = { // eslint-disable-line unicorn/prefer-module
+module.exports = {
 	extends: 'xo-react',
 	ignores: [
 		'./next-env.d.ts',
@@ -7,4 +7,12 @@ module.exports = { // eslint-disable-line unicorn/prefer-module
 		'react/react-in-jsx-scope': 'off',
 		'react/function-component-definition': ['error', {namedComponents: 'arrow-function'}],
 	},
+	overrides: [
+		{
+			files: './**/*.config.js',
+			rules: {
+				'unicorn/prefer-module': 'off',
+			},
+		},
+	],
 };

@@ -3,4 +3,4 @@ const nextConfig = {
 	reactStrictMode: true,
 };
 
-module.exports = nextConfig; // eslint-disable-line unicorn/prefer-module
+module.exports = nextConfig;
