@@ -1,12 +1,12 @@
 module.exports = {
     parser: '@typescript-eslint/parser', // Specifies the ESLint parser
     extends: [
-        'next/core-web-vitals',
         'plugin:react/recommended',
         'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
         'prettier',
         'plugin:prettier/recommended',
         'plugin:react-hooks/recommended',
+        'next/core-web-vitals',
     ],
     parserOptions: {
         ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
