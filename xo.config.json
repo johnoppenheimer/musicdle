@@ -1,5 +1,0 @@
-{
-    "prettier": true,
-    "space": 4,
-    "extends": "xo-react"
-}
