@@ -1,10 +1,9 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import MainLayout from '../components/layouts/MainLayout';
 import DeezerAutocomplete from '../components/pages/home/DeezerAutocomplete';
 
 const Home: NextPage = () => (
-    <MainLayout>
+    <div>
         <Head>
             <title>Musicdle</title>
             <meta name="description" content="Create blindtest for your friends" />
@@ -14,7 +13,7 @@ const Home: NextPage = () => (
             <h2 className="text-xl">Create daily musicle for your friends</h2>
             <DeezerAutocomplete />
         </div>
-    </MainLayout>
+    </div>
 );
 
 export default Home;
