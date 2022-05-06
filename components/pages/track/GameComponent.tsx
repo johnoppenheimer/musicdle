@@ -31,7 +31,10 @@ const GameComponent = ({ track }: GameComponentProps) => {
                             'border-white': index === gameState.guessList.length,
                         })}
                     >
-                        <></>
+                        {gameState.guessList[index]?.skipped && <span>SKIPPED</span>}
+                        {gameState.guessList[index]?.answer != null && (
+                            <span>{gameState.guessList[index]?.answer}</span>
+                        )}
                     </div>
                 ))}
         </div>

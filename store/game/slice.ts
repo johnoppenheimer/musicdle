@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type GameGuess = {
-    answer: string;
+    trackId: number | null;
+    answer: string | null;
     skipped: boolean;
     correct: boolean;
 };
@@ -25,9 +26,7 @@ type StartGamePayload = {
     trackId: number;
 };
 
-type AddGameGuessPayload = {
-    trackId: number;
-} & GameGuess;
+type AddGameGuessPayload = { forTrackId: number } & Omit<GameGuess, 'correct'>;
 
 const gameSlice = createSlice({
     name: 'games',
@@ -54,14 +53,26 @@ const gameSlice = createSlice({
             }
         },
         addGuess: (state, action: PayloadAction<AddGameGuessPayload>) => {
-            const { trackId, ...gameGuess } = action.payload;
-            const gameState = state.find((_gameState) => _gameState.trackId === trackId);
-            if (gameState != null) {
-                gameState.guessList.push(gameGuess);
+            const { forTrackId, ...gameGuess } = action.payload;
+            const gameState = state.find((_gameState) => _gameState.trackId === forTrackId);
+
+            if (gameState == null) {
+                return;
             }
 
-            if (gameState?.guessList.length === 6) {
-                gameState.gotCorrect = gameGuess.correct;
+            const isCorrect = gameGuess.trackId === gameState.trackId;
+
+            gameState.guessList.push({
+                ...gameGuess,
+                correct: isCorrect,
+            });
+
+            if (isCorrect) {
+                gameState.gotCorrect = isCorrect;
+                gameState.hasFinished = true;
+                gameState.score = gameState.guessList.length;
+            } else if (gameState?.guessList.length === 6) {
+                gameState.gotCorrect = isCorrect;
                 gameState.hasFinished = true;
                 gameState.score = gameState.guessList.length;
             }
