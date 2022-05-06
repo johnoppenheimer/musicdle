@@ -55,6 +55,17 @@ const TrackGamePage: NextPage = () => {
         );
     }
 
+    if (!gameState?.gotCorrect && gameState?.hasFinished) {
+        return (
+            <div>
+                <div>T'es mauvais jack</div>
+                <button type="button" onClick={shareResult}>
+                    Share
+                </button>
+            </div>
+        );
+    }
+
     return (
         <div>
             <div className="mt-4">
