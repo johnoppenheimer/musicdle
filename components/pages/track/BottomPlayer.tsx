@@ -28,8 +28,8 @@ const BottomPlayer = ({ track }: BottomPlayerProps) => {
     const onTimeChange = useCallback(() => {
         console.log('current time:', playerRef.current?.currentTime);
         if (playerRef.current?.currentTime != null && playerRef.current?.currentTime >= maxSeconds) {
-            playerRef.current?.pause();
-            playerRef.current?.fastSeek(0);
+            playerRef.current.pause();
+            playerRef.current.currentTime = 0;
         }
     }, [maxSeconds]);
 
