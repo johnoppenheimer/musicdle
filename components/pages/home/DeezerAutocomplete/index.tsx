@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useDeezerSearch } from '../../../../libraries/deezer/hooks';
 import DeezerAutocompleteInput from './DeezerAutocompleteInput';
