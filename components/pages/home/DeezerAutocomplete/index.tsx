@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useDeezerSearch } from '../../../../libraries/deezer/hooks';
 import { DeezerTrack } from '../../../../libraries/deezer/type';
+import DeezerAutocompleteInput from './DeezerAutocompleteInput';
 import DeezerAutocompleteResultRow from './DeezerAutocompleteResultRow';
 
 const DeezerAutocomplete = () => {
@@ -16,8 +17,7 @@ const DeezerAutocomplete = () => {
 
     return (
         <div>
-            <input value={query} onChange={(e) => setQuery(e.target.value)} className="bg-neutral-600" />
-            {isLoading && <p>Loading</p>}
+            <DeezerAutocompleteInput value={query} onChangeText={setQuery} isLoading={isLoading} />
             {data != null && (
                 <div>
                     {data.data.map((track) => (

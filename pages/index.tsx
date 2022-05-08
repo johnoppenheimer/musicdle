@@ -10,7 +10,7 @@ const Home: NextPage = () => (
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <div className="py-2">
-            <h2 className="text-xl">Create daily musicle for your friends</h2>
+            <h2 className="text-2xl my-8">Search a music and create a musicdle!</h2>
             <DeezerAutocomplete />
         </div>
     </div>
