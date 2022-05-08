@@ -7,7 +7,7 @@ const TopNav = () => {
                 <div />
                 <div>
                     <Link href="/">
-                        <a className="text-3xl font-semibold">musicdle</a>
+                        <a className="text-3xl font-mono font-semibold">musicdle</a>
                     </Link>
                 </div>
                 <div />
