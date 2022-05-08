@@ -1,15 +1,14 @@
 import { useEffect } from 'react';
 import classNames from 'classnames';
-import { DeezerTrack } from '../../../libraries/deezer/type';
 import { useAppDispatch } from '../../../store/hooks';
 import { initGame } from '../../../store/game/slice';
 import { useGameState } from '../../../store/game/hooks';
+import { useTrackContext } from '../../../helpers/context/TrackContext';
 
-type GameComponentProps = {
-    track: DeezerTrack;
-};
+type GameComponentProps = Record<string, never>;
 
-const GameComponent = ({ track }: GameComponentProps) => {
+const GameComponent = ({}: GameComponentProps) => {
+    const { track } = useTrackContext();
     const gameState = useGameState(track.id);
     const dispatch = useAppDispatch();
     useEffect(() => {

@@ -1,13 +1,12 @@
 import { useCallback, useMemo, useRef, useState } from 'react';
-import { DeezerTrack } from '../../../libraries/deezer/type';
+import { useTrackContext } from '../../../helpers/context/TrackContext';
 import { useGameState } from '../../../store/game/hooks';
 import PlayPauseButton from '../../buttons/PlayPause';
 
-type BottomPlayerProps = {
-    track: DeezerTrack;
-};
+type BottomPlayerProps = Record<string, never>;
 
-const BottomPlayer = ({ track }: BottomPlayerProps) => {
+const BottomPlayer = ({}: BottomPlayerProps) => {
+    const { track } = useTrackContext();
     const gameState = useGameState(track.id);
     const [playing, setPlaying] = useState(false);
     const playerRef = useRef<HTMLAudioElement>(null);
@@ -34,7 +33,7 @@ const BottomPlayer = ({ track }: BottomPlayerProps) => {
     }, [maxSeconds]);
 
     return (
-        <div>
+        <div className="absolute bottom-0">
             <PlayPauseButton isPlaying={playing} onClick={onButtonClick} />
             <audio
                 ref={playerRef}

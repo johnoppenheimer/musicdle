@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import BottomPlayer from '../components/pages/track/BottomPlayer';
 import DeezerSmallSearch from '../components/pages/track/DeezerSmallSearch';
 import GameComponent from '../components/pages/track/GameComponent';
+import { TrackProvider } from '../helpers/context/TrackContext';
 import { useDeezerTrack } from '../libraries/deezer/hooks';
 import { useGameState } from '../store/game/hooks';
 
@@ -67,13 +68,15 @@ const TrackGamePage: NextPage = () => {
     }
 
     return (
-        <div>
-            <div className="mt-4">
-                <GameComponent track={data} />
+        <TrackProvider track={data}>
+            <div>
+                <div className="mt-4">
+                    <GameComponent />
+                </div>
+                <DeezerSmallSearch />
+                <BottomPlayer />
             </div>
-            <DeezerSmallSearch />
-            <BottomPlayer track={data} />
-        </div>
+        </TrackProvider>
     );
 };
 
