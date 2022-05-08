@@ -2,6 +2,7 @@ import { useCallback, useMemo, useRef, useState } from 'react';
 import { useTrackContext } from '../../../helpers/context/TrackContext';
 import { useGameState } from '../../../store/game/hooks';
 import PlayPauseButton from '../../buttons/PlayPause';
+import { secondsAllowedForNbGuess } from './DeezerSmallSearch/helpers';
 
 type BottomPlayerProps = Record<string, never>;
 
@@ -33,7 +34,7 @@ const BottomPlayer = ({}: BottomPlayerProps) => {
     }, [maxSeconds]);
 
     return (
-        <div className="absolute bottom-0">
+        <div>
             <PlayPauseButton isPlaying={playing} onClick={onButtonClick} />
             <audio
                 ref={playerRef}
@@ -44,23 +45,6 @@ const BottomPlayer = ({}: BottomPlayerProps) => {
             />
         </div>
     );
-};
-
-const secondsAllowedForNbGuess = (guessLength: number): number => {
-    switch (guessLength) {
-        case 0:
-            return 1;
-        case 1:
-            return 2;
-        case 2:
-            return 4;
-        case 3:
-            return 7;
-        case 4:
-            return 11;
-        default:
-            return 16;
-    }
 };
 
 export default BottomPlayer;

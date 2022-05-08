@@ -38,7 +38,7 @@ const TrackGamePage: NextPage = () => {
     };
 
     if (isLoading) {
-        return <div>Loading</div>;
+        return <></>;
     }
 
     if (data == null) {
@@ -73,8 +73,12 @@ const TrackGamePage: NextPage = () => {
                 <div className="mt-4">
                     <GameComponent />
                 </div>
-                <DeezerSmallSearch />
-                <BottomPlayer />
+                <div className="absolute bottom-8 left-0 right-0 ">
+                    <div className="max-w-screen-sm mx-auto">
+                        <BottomPlayer />
+                        <DeezerSmallSearch />
+                    </div>
+                </div>
             </div>
         </TrackProvider>
     );
