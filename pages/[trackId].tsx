@@ -70,7 +70,7 @@ const TrackGamePage: NextPage = () => {
     return (
         <TrackProvider track={data}>
             <div>
-                <div className="mt-4">
+                <div className="mt-4 max-w-screen-sm mx-auto">
                     <GameComponent />
                 </div>
                 <div className="absolute bottom-8 left-0 right-0 ">

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import classNames from 'classnames';
+import { XIcon } from '@heroicons/react/outline';
 import { useAppDispatch } from '../../../store/hooks';
 import { initGame } from '../../../store/game/slice';
 import { useGameState } from '../../../store/game/hooks';
@@ -26,13 +27,20 @@ const GameComponent = ({}: GameComponentProps) => {
                 .map((_v, index) => (
                     <div
                         key={`game-guess-${index}`}
-                        className={classNames('h-12 w-full border border-neutral-600', {
+                        className={classNames('h-10 w-full border border-neutral-600 flex items-center px-4', {
                             'border-white': index === gameState.guessList.length,
                         })}
                     >
-                        {gameState.guessList[index]?.skipped && <span>SKIPPED</span>}
+                        {gameState.guessList[index]?.skipped && (
+                            <span className="font-mono font-semibold text-sm tracking-widest text-neutral-500">
+                                SKIPPED
+                            </span>
+                        )}
                         {gameState.guessList[index]?.answer != null && (
-                            <span>{gameState.guessList[index]?.answer}</span>
+                            <div className="flex flex-row items-center">
+                                <XIcon className="w-5 h-5 text-red-600" />
+                                <span className="text-neutral-500 ml-2">{gameState.guessList[index]?.answer}</span>
+                            </div>
                         )}
                     </div>
                 ))}
