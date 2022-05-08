@@ -27,8 +27,7 @@ const FinishGame = () => {
             })
             .join('');
 
-        const url = window.location.protocol + '//' + window.location.host;
-        navigator.clipboard.writeText(`Musicdle #${track.id}\n${emojiScore}\n\n${url}`);
+        navigator.clipboard.writeText(`Musicdle #${track.id}\n${emojiScore}\n\n${window.location.toString()}`);
     };
 
     const onTooltipShow: TippyProps['onShow'] = (instance) => {
