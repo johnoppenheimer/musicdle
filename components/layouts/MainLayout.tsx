@@ -7,7 +7,7 @@ type MainLayoutProps = {
 const MainLayout = ({ children }: MainLayoutProps) => (
     <div className="h-screen">
         <TopNav />
-        <div className="max-w-screen-md mx-auto">{children}</div>
+        <div className="max-w-screen-md mx-auto pt-14">{children}</div>
     </div>
 );
 
