@@ -2,10 +2,10 @@ init:
 	yarn install
 
 style:
-	yarn xo
+	yarn lint
 
 format:
-	yarn xo --fix
+	yarn lint --fix
 
 watch:
 	yarn dev
