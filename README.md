@@ -19,7 +19,12 @@ To check the linter:
 make style
 ```
 
-To fix the issue with the linter
+To fix the issue with the linter:
 ```bash
 make format
+```
+
+To build for production:
+```bash
+make build
 ```

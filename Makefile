@@ -9,3 +9,6 @@ format:
 
 watch:
 	yarn dev
+
+build:
+	yarn build
