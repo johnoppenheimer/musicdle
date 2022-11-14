@@ -28,7 +28,7 @@
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.5",
     "@types/react-howler": "^5.2.0",
-    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.26.0",
     "autoprefixer": "^10.4.7",
     "cssnano": "^5.1.12",
