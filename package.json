@@ -21,7 +21,7 @@
     "react-howler": "^5.2.0",
     "react-query": "^3.39.1",
     "react-redux": "^8.0.2",
-    "yup": "^0.32.11"
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@types/node": "^18.14.6",
